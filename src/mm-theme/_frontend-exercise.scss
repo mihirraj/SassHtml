@@ -30,39 +30,61 @@ header {
   }
 }
 
-.mm-header {
-  p {
-    max-width: 71%;
-  }
-}
-
 .container {
   margin-top: 5rem;
   .card-holder {
     display: flex;
-
     .mm-card {
       // Feel free to make any comments to explain your thinking
-      margin-right: 20px;
       background-color: white;
       .image {
         // Including some base styles so this shows up in the basic page, feel free to change these
         width: 100%;
-        max-width: 350px;
         height: 214px;
       }
       .content {
         width: 100%;
-        max-width: 350px;
-        height: auto;
+        height: 286px;
+        min-height: fit-content;
         padding: 20px;
+        position: relative;
 
         .mm-category {
-          text-transform: uppercase;
-          color: grey;
-          font-family: $mm-sample-font-serif;
+          @extend %eyebrow;
+        }
+        .mm-footer {
+          position: absolute;
+          bottom: 20px;
+          .mm-button {
+            @extend %btn-primary;
+            position: relative;
+          }
         }
       }
+    }
+  }
+}
+
+// @media screen and (max-width: 375px) {
+//   .card-holder {
+//     flex-direction: column;
+//   }
+// }
+
+@media only screen and (max-width: 600px) {
+  .card-holder {
+    flex-direction: column;
+    .mm-card {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .card-holder {
+    flex-direction: row;
+    .mm-card {
+      margin-right: 20px;
     }
   }
 }
